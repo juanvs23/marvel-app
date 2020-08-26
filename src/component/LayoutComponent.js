@@ -4,8 +4,10 @@ import MenuComponent from './menu/MenuComponent'
 import styled from 'styled-components'
 
 const Wrapper = styled.section`
-  padding: 4em;
-  background: #F7F8FA;
+padding: 8rem 0rem;
+max-width: 1000px;
+margin: auto;
+display: flex;
 `;
 
 const LayoutComponent =(props)=>{
