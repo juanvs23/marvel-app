@@ -1,5 +1,5 @@
 import React,{useContext,useRef} from 'react'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 
@@ -57,7 +57,7 @@ const Buscador =(props)=>{
         document.querySelector('button.Buscador').style.visibility="hidden"
   }
   const handlerShow=(e)=>{
-    if(HeroBuscar.current.value.length==0){
+    if(HeroBuscar.current.value.length===0){
         document.querySelector('button.Buscador').style.visibility="visible"
     }
 
@@ -67,7 +67,7 @@ const Buscador =(props)=>{
            
            e.preventDefault()
            getSaludar( HeroBuscar.current.value)
-       }else if(saludo.length==0|| HeroBuscar.current.value==0){
+       }else if(saludo.length===0|| HeroBuscar.current.value===0){
         getSaludar( "Buscar")
        }
     }

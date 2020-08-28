@@ -3,8 +3,7 @@ import LayoutComponent from './component/layout/LayoutComponent';
 import { createGlobalStyle } from 'styled-components'
 import { BrowserRouter as Router,
   Switch,
-  Route,
-  Link} from 'react-router-dom'
+  Route} from 'react-router-dom'
 
 import HomePage from './pages/Home'
 import InternalPage from './pages/Internal'

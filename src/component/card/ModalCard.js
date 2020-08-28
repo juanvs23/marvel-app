@@ -14,6 +14,7 @@ const ModalContainer=styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 999;
 `
 const ModalWrapper=styled.div`
     background:white;
@@ -21,11 +22,16 @@ const ModalWrapper=styled.div`
     border-radius: 5px;
     min-width: 300px;
     height: 448px;
+    overflow-y:hidden;
     .titleContainer {
         display: flex;
         justify-content: space-between;
         align-items: top;
        
+    }
+    .comicList {
+        overflow-y: scroll;
+        height: 350px;
     }
     .close {
         font-size: 2rem;
@@ -49,16 +55,14 @@ const ModalTitle=({title,getActive})=>{
 return(<div className="titleContainer"><h3 className="title">{title}</h3><div className="close" onClick={handleClose} ><i className="fa fa-times"></i></div></div>)
 
 }
-const ComicsList=({comics})=>{
-    console.log(comics)
+const ComicsList=({comics,id,name})=>{
     
-  return(
-      <div className="comicList">
+    
+  return(<div className="comicList">
           {  comics.items.map((comic,i)=>{
-        return(<ComicLink key={i} Comic={comic}/>)
+        return(<ComicLink key={i} idPj={id} name={name} Comic={comic} />)
     })}
-      </div>
-  )
+      </div>)
 }
 
 const ModalCard=({comics,id,name,getActive})=>{
@@ -67,7 +71,7 @@ const ModalCard=({comics,id,name,getActive})=>{
     <ModalContainer id={`${id}`}>
         <ModalWrapper>
             <ModalTitle title={name} getActive={getActive}/>
-            <ComicsList comics={comics}/>
+            <ComicsList id={id} name={name} comics={comics}/>
         </ModalWrapper>
     </ModalContainer>
     )
