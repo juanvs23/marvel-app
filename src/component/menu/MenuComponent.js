@@ -2,7 +2,7 @@ import React from 'react'
 import Buscador from './buscador'
 import styled from 'styled-components'
 import Logo from './logo'
-import StarComponent from '../StarComponent'
+import MenuRightComponent from './MenuRightComponent'
 
 const Header=styled.header`
 width: 100%;
@@ -23,13 +23,19 @@ max-width:1200px;
 display:flex;
 width:100%;
 align-items: center;
+@media(max-width:767px){
+display:block;
+
+}
 `
+
 
 const MenuComponent=(props)=>{
     return(
     <Header>
         <HeaderWrapper>
-        <Logo /> <Buscador /><StarComponent />
+        <Logo /> <Buscador /><MenuRightComponent />
+        
         </HeaderWrapper>
     </Header>)
 }

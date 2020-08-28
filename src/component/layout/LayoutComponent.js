@@ -1,5 +1,5 @@
 import React from 'react'
-import MenuComponent from './menu/MenuComponent'
+import MenuComponent from '../menu/MenuComponent'
 
 import styled from 'styled-components'
 
@@ -15,7 +15,7 @@ const LayoutComponent =(props)=>{
         <>
             <MenuComponent />
             <Wrapper>
-                <h1>hola mundo</h1>
+                
                 {props.children}
             </Wrapper>
         </>
