@@ -10,7 +10,7 @@ display:block;
 `
 
 const Contador=({limit,total})=>{
-    console.log(Math.floor(total/limit))
+  //  console.log(Math.floor(total/limit))
     return null
 }
 const HomePage=(props)=>{
