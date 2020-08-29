@@ -14,7 +14,7 @@ const Contador=({limit,total})=>{
     return null
 }
 const HomePage=(props)=>{
-    const { useFetch,apikey,ts,hash,offSet,saludo }= useContext(FunctionalsContent)
+    const { useFetch,apikey,ts,hash,offSet}= useContext(FunctionalsContent)
   
 
      const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=20&offset=${offSet}`;
