@@ -44,10 +44,10 @@ const ComicLink=({Comic,idPj,name})=>{
       const comicContent= useFetch(url)
       const {response}=comicContent
       if(response!==null){
-                console.log(response.data.results[0])
+              
               const {id, images,title}= response.data.results[0]
-            
-     if(images!==undefined && title!==undefined && id!==undefined){
+             
+     if(images!==undefined && title!==undefined && id!==undefined && images[0].path!==undefined){
         return(<Tolink to={`/internal/${id}`}><div className="content-images"><img alt="" src={`${images[0].path}.jpg`} /></div><div className="content-text"><h4>{title}</h4></div></Tolink>)
      }else{
          return(<div className="Cargando" >Cargando..</div>)

@@ -59,11 +59,12 @@ const Buscador =(props)=>{
   const handlerShow=(e)=>{
     if(HeroBuscar.current.value.length===0){
         document.querySelector('button.Buscador').style.visibility="visible"
+         getSaludar( "Buscar")
     }
 
 }
     const handlerSubmit=(e)=>{
-       if(HeroBuscar.current.value.length>=2){
+       if(HeroBuscar.current.value.length>=0){
            
            e.preventDefault()
            getSaludar( HeroBuscar.current.value)

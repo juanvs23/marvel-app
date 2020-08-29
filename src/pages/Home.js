@@ -14,10 +14,14 @@ const Contador=({limit,total})=>{
     return null
 }
 const HomePage=(props)=>{
-    const { useFetch,apikey,ts,hash,offSet }= useContext(FunctionalsContent)
+    const { useFetch,apikey,ts,hash,offSet,saludo }= useContext(FunctionalsContent)
+  
+
+     const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=20&offset=${offSet}`;
+     const heroList=useFetch(url);
    
-   const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=20&offset=${offSet}`;
-   const heroList=useFetch(url);
+
+  
    let {response}=heroList
    
 if (response!==null) {
@@ -25,9 +29,10 @@ if (response!==null) {
         let {limit,results,total}=response.data
         return(
             <HomWrapper>
+              
               {results.map(hero=>{
                 
-                  let {id,name,thumbnail:{path,extension}}=hero
+                  let {id}=hero
                  return(<CardComponent 
                     key={id}
                     id={id}
