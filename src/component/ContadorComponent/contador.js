@@ -3,28 +3,68 @@ import styled from 'styled-components'
 import {FunctionalsContent} from '../../context/Context'
 
 const ContainerWrapper=styled.div`
+display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 84px;
+    font-size:20px;
+    color:#A8A8A8;
+    button i.fa {
+        font-size: 25px;
+    }
+    input.control {
+        appearance: none;
+        border: none;
+        background: transparent;
+        width: 30px;
+        font-size: 23px;
+        text-align: center;
+        font-weight: 700;
+        transition:0.5s 0.3s;
+        outline: none !important;
+        border-bottom:2px solid transparent;
+        color:#A8A8A8;
+    }
+    input.control:hover,input.control:focus{
+        border-bottom:2px solid #A8A8A8;
+    }
+    button {
+        appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 10px;
+        outline: none;
+        color:#A8A8A8;
+    }
 `;
 
 const ContadorComponent=({limit,total})=>{
     const { offSet,getOffSet}= useContext(FunctionalsContent)
     const [counter,setCounter]=useState(0)
     const totalHeros = Math.floor(total/limit)
-    const ref = useRef(offSet)
+    const counterRef = useRef(offSet)
       
 const handlerChange=(e)=>{
-
+ console.log(e,counterRef.current.value)
+ if (counterRef.current.value>0 && counterRef.current.value<= totalHeros) {
+    getOffSet(counterRef.current.value*8)
+ }
 }
     const handlerAdd=()=>{
        if(counter*8<=totalHeros){
             setCounter(counter+1)
-            console.log(counter*8)
+            console.log(offSet)
             getOffSet(counter*8)
     }
        }
        const handlerSustrap=()=>{
-       
+        if(counter>=0){
         setCounter(counter-1)
-       
+        console.log(offSet)
+        getOffSet(counter*8)
+        }
        }
       
     return(
@@ -32,7 +72,7 @@ const handlerChange=(e)=>{
              
                 <button type="button" onClick={handlerSustrap}> <i className="fa fa-chevron-left"></i> </button>
                 <div className="counterText">
-                <input type="text" className="form-control mb-2 mr-sm-2" const ref={ref} onChange={handlerChange} placeholder={counter}/>
+                <input type="text" className="control" ref={counterRef} onChange={handlerChange} placeholder={counter+1}/>
                     <span> de </span>
                     <span> {totalHeros} </span>
                 </div>
@@ -42,3 +82,4 @@ const handlerChange=(e)=>{
     )
 }
 export default ContadorComponent
+

@@ -1,6 +1,7 @@
 import React,{useState}  from 'react'
 import styled from 'styled-components'
 import ModalCard from './ModalCard'
+import StartComponentSlave from '../Starcomponent/StarComponentSlave'
 
 const CardContainer=styled.article`
     display:block;
@@ -15,21 +16,35 @@ const CardContainer=styled.article`
     background-position: center;
     margin: 1%;
     background-size: cover;
-    cursor:pointer;
+    
     .starCard {
         position: relative;
         float: right;
         margin: 20px;
         color: white;
         font-size: 25px;
+        z-index:2;
     }
-    p.cardName {
-        /* position: absolute; */
-        margin-top: 21rem;
-        margin-left: 15px;
+    .cardName {
+        padding-top: 16rem;
+        margin-left: 0;
         color: white;
         font-size: 20px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        background: transparent;
+        width: 100%;
+        z-index: 2;
+        text-align: left !important;
+        cursor: pointer;
+        text-shadow: 1px 0px 7px black;
+
     }
+    
+        
+    
     @media(max-width:767px){
 
         display: block;
@@ -42,18 +57,12 @@ const CardContainer=styled.article`
     }
 
 `;
-const NameCard=(props)=>{
-    
-return(
-    <p className="cardName">
-       {props.name}
-    </p>
-)
-};
-const Star=(props)=>{
+
+const Star=({id})=>{
 return(
     <div className="starCard">
-<i className="fa  fa-star-o"></i>
+<StartComponentSlave id={id}  />
+
 </div>
 )
 }
@@ -81,10 +90,11 @@ const CardComponent=({hero})=>{
    
     return(
         <>
-        <CardContainer   onClick={handleClick}
+        <CardContainer   
         bg={`${path}.${extension}`}  >
-            <Star  />
-            <NameCard name={name} />
+            <Star  id={id}  />
+    <button className="cardName"  onClick={handleClick}>{name}</button>
+        
         </CardContainer>
            <Modal
            name={name}

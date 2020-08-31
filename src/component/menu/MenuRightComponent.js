@@ -1,4 +1,5 @@
 import React from 'react'
+import StartComponent from '../Starcomponent/StarComponent'
 import styled from 'styled-components'
 
 
@@ -18,7 +19,7 @@ const MenuRightComponent=()=>{
     return(
 
         <MenuRightWrapper>
-            <i className="fa  fa-star-o"></i>
+            <StartComponent id="principal" />
         </MenuRightWrapper>
     );
 }

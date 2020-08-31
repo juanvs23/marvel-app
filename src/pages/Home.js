@@ -1,4 +1,4 @@
-import React,{useContext,useEffect} from 'react';
+import React,{useContext} from 'react';
 import styled from 'styled-components'
 import {FunctionalsContent} from '../context/Context'
 import{useFetch} from '../hooks/useFetch'
@@ -12,12 +12,27 @@ display:block;
 
 
 const HomePage=(props)=>{
+    
     const { apikey,ts,hash,offSet,buscar}= useContext(FunctionalsContent)
-    const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=8&offset=${offSet}`;
-    const heroList=useFetch(url);
+ 
+const getUrl=()=>{
+  if (buscar!=="Buscar" && buscar!=="") {
+    
+    return `https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=8&offset=${offSet}&nameStartsWith=${buscar}`
+  }else{
+    return `https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=8&offset=${offSet}`
+  }
+}
+
+  
+ const url=getUrl();
+  const heroList=useFetch(url);
+
+
     
 
 
+//    const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&&nameStartsWith=spider`;
 
  
     let {response}=heroList
@@ -25,29 +40,7 @@ const HomePage=(props)=>{
     if (response!==null) {
       let {limit,results,total}=response.data
       
-      if(buscar!=="Buscar" && buscar !==""){
-        fetch(`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&name=spider`)
-        .then(resp=>resp.json())
-        .then(resp=>{console.log(resp)})
-        
-         return(
-          <HomWrapper>
-            
-            {results.map(hero=>{
-              
-                let {id}=hero
-               return(<CardComponent 
-                  key={id}
-                  id={id}
-                  hero={hero} 
-                 
-               />
-               )
-            })}
-          <ContadorComponent limit={limit} total={total} />
-          </HomWrapper>
-      )
-        }else{
+    
            return(
                <HomWrapper>
                  
@@ -66,7 +59,7 @@ const HomePage=(props)=>{
                </HomWrapper>
            )
 
-      }
+     
     }else{
       return(
 

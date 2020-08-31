@@ -8,23 +8,17 @@ export const FunctionalsContent =createContext();
 const FunctionalsProvider=({children})=>{
     const [buscar,getBuscar]=useState('Buscar');
     const [offSet,getOffSet]=useState(0);
+    const [stars,getStars]=useState(false);
+    const [starList,getList]=useState([])
     const {apikey,ts,hash}=data;
-   
-    
-   /*  const fetching=(url)=>{
-      if(!url) throw new Error('No hay url')
-      const [state,setState]=useState({response:null,error:null,loading:true})
-      useEffect(() => {
-        
-              })
-
-    }; */
     
     return(
     <FunctionalsContent.Provider
         value={{buscar,
             getBuscar,
             getOffSet,
+            stars,getStars,
+            starList,getList,
             offSet,
             apikey,ts,hash 
         }}
