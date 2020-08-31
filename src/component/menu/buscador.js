@@ -51,7 +51,7 @@ button.Buscador{
 `
 
 const Buscador =(props)=>{
-    const {saludo,getSaludar}= useContext(FunctionalsContent)
+    const {buscar,getBuscar}= useContext(FunctionalsContent)
     const HeroBuscar=useRef()
   const handlerVanish=(e)=>{
         document.querySelector('button.Buscador').style.visibility="hidden"
@@ -59,7 +59,7 @@ const Buscador =(props)=>{
   const handlerShow=(e)=>{
     if(HeroBuscar.current.value.length===0){
         document.querySelector('button.Buscador').style.visibility="visible"
-         getSaludar( "Buscar")
+         getBuscar( "Buscar")
     }
 
 }
@@ -67,15 +67,15 @@ const Buscador =(props)=>{
        if(HeroBuscar.current.value.length>=0){
            
            e.preventDefault()
-           getSaludar( HeroBuscar.current.value)
-       }else if(saludo.length===0|| HeroBuscar.current.value===0){
-        getSaludar( "Buscar")
+           getBuscar( HeroBuscar.current.value)
+       }else if(buscar.length===0|| HeroBuscar.current.value===0){
+        getBuscar( "Buscar")
        }
     }
     return(
         
         <BuscadorWrapper >
-               <button className="Buscador" type="button"> <i className="fa fa-search"></i> </button>< Input ref={HeroBuscar} onFocus={handlerVanish} onBlur={handlerShow} onChange={handlerSubmit} type="text"  placeholder={saludo} />
+               <button className="Buscador" type="button"> <i className="fa fa-search"></i> </button>< Input ref={HeroBuscar} onFocus={handlerVanish} onBlur={handlerShow} onChange={handlerSubmit} type="text"  placeholder={buscar} />
         </BuscadorWrapper>
     )
 }

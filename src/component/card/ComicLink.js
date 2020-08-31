@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import { Link } from 'react-router-dom'
 import {FunctionalsContent} from '../../context/Context'
+import {useFetch} from '../../hooks/useFetch'
 import styled from 'styled-components'
 
 const Tolink=styled(Link)`
@@ -32,10 +33,10 @@ color:#515151 !important;
 
 
 
-const ComicLink=({Comic,idPj,name})=>{
-    const {useFetch,apikey,ts,hash,offSet }= useContext(FunctionalsContent)
+const ComicLink=({Comic})=>{
+    const {apikey,ts,hash,offSet }= useContext(FunctionalsContent)
     const {resourceURI}=Comic
-    //console.log(resourceURI)
+   
 
     
     const url=`${resourceURI}?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=20&offset=${offSet}`;
@@ -46,10 +47,11 @@ const ComicLink=({Comic,idPj,name})=>{
       if(response!==null){
               
               const {id, images,title}= response.data.results[0]
-             
-     if(images!==undefined && title!==undefined && id!==undefined && images[0].path!==undefined){
+            
+     if(images[0]!==undefined && title!==undefined && id!==undefined){
         return(<Tolink to={`/internal/${id}`}><div className="content-images"><img alt="" src={`${images[0].path}.jpg`} /></div><div className="content-text"><h4>{title}</h4></div></Tolink>)
      }else{
+         console.log('aqui no hay nada')
          return(<div className="Cargando" >Cargando..</div>)
      }
             }else{

@@ -1,7 +1,10 @@
 import React,{useContext} from 'react'
-import { Link } from 'react-router-dom'
+
 import {FunctionalsContent} from '../context/Context'
+import {useFetch} from '../hooks/useFetch'
+
 import styled from 'styled-components'
+
 
 const InternalWrapper=styled.article`
 flex-direction: row;
@@ -52,9 +55,7 @@ p.data-expert {
 `;
 
 const InternalPage=(props)=>{
-    const { 
-        useFetch, 
-        apikey,ts,hash }= useContext(FunctionalsContent)
+    const {apikey,ts,hash }= useContext(FunctionalsContent)
    
        const location=window.location.pathname
        let hero=location.substring(location.lastIndexOf('/')+1)
@@ -77,7 +78,7 @@ const InternalPage=(props)=>{
             let fecha=new Date(texto)
             return fecha.toDateString()
           }
-        console.log(formato(dates[0].date))
+       
     return(<InternalWrapper>
             <div className="col-2">
                 <img alt="title" src={`${images[0].path}.jpg`} />

@@ -1,4 +1,4 @@
-import React, { createContext,useState,useEffect } from 'react'
+import React, { createContext,useState } from 'react'
 import {data} from '../dataApi'
 
 
@@ -6,43 +6,26 @@ import {data} from '../dataApi'
 export const FunctionalsContent =createContext();
 
 const FunctionalsProvider=({children})=>{
-    const [saludo,getSaludar]=useState('Buscar');
+    const [buscar,getBuscar]=useState('Buscar');
     const [offSet,getOffSet]=useState(0);
     const {apikey,ts,hash}=data;
    
     
-    
+   /*  const fetching=(url)=>{
+      if(!url) throw new Error('No hay url')
+      const [state,setState]=useState({response:null,error:null,loading:true})
+      useEffect(() => {
+        
+              })
 
-     const useFetch = (url) => {
-        const [response, setResponse] = useState(null);
-        const [error, setError] = useState(null);
-        useEffect(() => {
-            const abortController = new AbortController();
-            const signal = abortController.signal;
-          const fetchData = async () => {
-            try {
-              const res = await fetch(url, { signal: signal });
-              const json = await res.json();
-              setResponse(json);
-            } catch (error) {
-              setError(error);
-            }
-          };
-          
-          fetchData();
-          return function cleanup() {
-            abortController.abort();
-          };
-        }, []);
-        return { response, error };
-      };
+    }; */
+    
     return(
     <FunctionalsContent.Provider
-        value={{saludo,
-            getSaludar,
+        value={{buscar,
+            getBuscar,
             getOffSet,
             offSet,
-            useFetch, 
             apikey,ts,hash 
         }}
 

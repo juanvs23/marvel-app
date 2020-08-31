@@ -1,49 +1,72 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect} from 'react';
 import styled from 'styled-components'
 import {FunctionalsContent} from '../context/Context'
+import{useFetch} from '../hooks/useFetch'
 import CardComponent from '../component/card/CardComponent'
-
+import ContadorComponent from '../component/ContadorComponent/contador'
 const HomWrapper=styled.div`
 display:block;
 
 
 `
 
-const Contador=({limit,total})=>{
-  //  console.log(Math.floor(total/limit))
-    return null
-}
+
 const HomePage=(props)=>{
-    const { useFetch,apikey,ts,hash,offSet}= useContext(FunctionalsContent)
-  
+    const { apikey,ts,hash,offSet,buscar}= useContext(FunctionalsContent)
+    const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=8&offset=${offSet}`;
+    const heroList=useFetch(url);
+    
 
-     const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=20&offset=${offSet}`;
-     const heroList=useFetch(url);
-   
 
-  
-   let {response}=heroList
-   
-if (response!==null) {
-   
-        let {limit,results,total}=response.data
-        return(
-            <HomWrapper>
+
+ 
+    let {response}=heroList
+    
+    if (response!==null) {
+      let {limit,results,total}=response.data
+      
+      if(buscar!=="Buscar" && buscar !==""){
+        fetch(`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&name=spider`)
+        .then(resp=>resp.json())
+        .then(resp=>{console.log(resp)})
+        
+         return(
+          <HomWrapper>
+            
+            {results.map(hero=>{
               
-              {results.map(hero=>{
-                
-                  let {id}=hero
-                 return(<CardComponent 
-                    key={id}
-                    id={id}
-                    hero={hero} 
+                let {id}=hero
+               return(<CardComponent 
+                  key={id}
+                  id={id}
+                  hero={hero} 
+                 
+               />
+               )
+            })}
+          <ContadorComponent limit={limit} total={total} />
+          </HomWrapper>
+      )
+        }else{
+           return(
+               <HomWrapper>
+                 
+                 {results.map(hero=>{
                    
-                 />
-                 )
-              })}
-            <Contador limit={limit} total={total} />
-            </HomWrapper>
-        )
+                     let {id}=hero
+                    return(<CardComponent 
+                       key={id}
+                       id={id}
+                       hero={hero} 
+                      
+                    />
+                    )
+                 })}
+               <ContadorComponent limit={limit} total={total} />
+               </HomWrapper>
+           )
+
+      }
     }else{
       return(
 
