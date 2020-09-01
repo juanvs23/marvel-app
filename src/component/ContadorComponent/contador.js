@@ -41,7 +41,7 @@ display: flex;
 `;
 
 const ContadorComponent=({limit,total})=>{
-    const { offSet,getOffSet}= useContext(FunctionalsContent)
+    const { getOffSet}= useContext(FunctionalsContent)
     const [counter,setCounter]=useState(1)
     const totalHeros = Math.floor(total/limit)
     const counterRef = useRef(1)
@@ -55,14 +55,14 @@ const handlerChange=(e)=>{
     const handlerAdd=()=>{
        if(counter*8<=totalHeros){
             setCounter(counter+1)
-            console.log(counter)
+           
             getOffSet(counter*8)
     }
        }
        const handlerSustrap=()=>{
         if(counter>=1){
         setCounter(counter-1)
-        console.log(offSet)
+       
         getOffSet(counter/8)
         }
        }

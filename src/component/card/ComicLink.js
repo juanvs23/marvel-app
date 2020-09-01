@@ -51,7 +51,7 @@ const ComicLink=({Comic})=>{
      if(images[0]!==undefined && title!==undefined && id!==undefined){
         return(<Tolink to={`/internal/${id}`}><div className="content-images"><img alt="" src={`${images[0].path}.jpg`} /></div><div className="content-text"><h4>{title}</h4></div></Tolink>)
      }else{
-         console.log('aqui no hay nada')
+        
          return(<div className="Cargando" >Cargando..</div>)
      }
             }else{
