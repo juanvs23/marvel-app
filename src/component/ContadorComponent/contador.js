@@ -42,12 +42,12 @@ display: flex;
 
 const ContadorComponent=({limit,total})=>{
     const { offSet,getOffSet}= useContext(FunctionalsContent)
-    const [counter,setCounter]=useState(0)
+    const [counter,setCounter]=useState(1)
     const totalHeros = Math.floor(total/limit)
-    const counterRef = useRef(offSet)
+    const counterRef = useRef(1)
       
 const handlerChange=(e)=>{
- console.log(e,counterRef.current.value)
+
  if (counterRef.current.value>0 && counterRef.current.value<= totalHeros) {
     getOffSet(counterRef.current.value*8)
  }
@@ -55,15 +55,15 @@ const handlerChange=(e)=>{
     const handlerAdd=()=>{
        if(counter*8<=totalHeros){
             setCounter(counter+1)
-            console.log(offSet)
+            console.log(counter)
             getOffSet(counter*8)
     }
        }
        const handlerSustrap=()=>{
-        if(counter>=0){
+        if(counter>=1){
         setCounter(counter-1)
         console.log(offSet)
-        getOffSet(counter*8)
+        getOffSet(counter/8)
         }
        }
       
@@ -72,7 +72,7 @@ const handlerChange=(e)=>{
              
                 <button type="button" onClick={handlerSustrap}> <i className="fa fa-chevron-left"></i> </button>
                 <div className="counterText">
-                <input type="text" className="control" ref={counterRef} onChange={handlerChange} placeholder={counter+1}/>
+                <input type="text" className="control" ref={counterRef} onChange={handlerChange} placeholder={counter}/>
                     <span> de </span>
                     <span> {totalHeros} </span>
                 </div>

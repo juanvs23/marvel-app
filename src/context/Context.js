@@ -9,7 +9,7 @@ const FunctionalsProvider=({children})=>{
     const [buscar,getBuscar]=useState('Buscar');
     const [offSet,getOffSet]=useState(0);
     const [stars,getStars]=useState(false);
-    const [starList,getList]=useState([])
+    const [starList,getList]=useState([1010699,1009144,1016823])
     const {apikey,ts,hash}=data;
     
     return(
