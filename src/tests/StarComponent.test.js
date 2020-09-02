@@ -11,10 +11,7 @@ describe('Pruebas a StartCompoent',()=>{
     test('Que tipo de props recibe', () => {
         const id ='principal';
         
-       const wrapper= shallow(
-      
-           <StarComponent id={id} />
-       ) 
+       const wrapper= shallow(<StarComponent id={id} />) 
         
       expect( toJson(wrapper)).toMatchSnapshot();
     });
