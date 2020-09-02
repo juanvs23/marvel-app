@@ -37,7 +37,7 @@ const ComicLink=({Comic})=>{
     const {apikey,ts,hash,offSet }= useContext(FunctionalsContent)
     const {resourceURI}=Comic
    
-
+     console.log(resourceURI)
     
     const url=`${resourceURI}?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=20&offset=${offSet}`;
     //const url=`https://gateway.marvel.com/v1/public/characters/${idPj}?apikey=${apikey}&ts=${ts}&hash=${hash}&limit=20&offset=${offSet}`

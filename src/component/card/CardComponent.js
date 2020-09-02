@@ -80,7 +80,7 @@ const Modal=({name,getActive,active,comics,id,})=>{
         }
 }
 const CardComponent=({hero})=>{
-    console.log(hero)
+    //console.log(hero)
     let {id,name,thumbnail:{path,extension},comics}=hero
     const [activeComicList, setactiveComicList] = useState(false)
     
