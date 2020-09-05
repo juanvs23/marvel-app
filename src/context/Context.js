@@ -1,5 +1,5 @@
 import React, { createContext,useState } from 'react'
-import {data} from '../dataApi'
+import {data} from '../config/dataApi'
 
 
 

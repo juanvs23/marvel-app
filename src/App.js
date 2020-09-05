@@ -1,12 +1,9 @@
 import React from 'react';
 import LayoutComponent from './component/layout/LayoutComponent';
 import { createGlobalStyle } from 'styled-components'
-import { BrowserRouter as Router,
-  Switch,
-  Route} from 'react-router-dom'
-
-import HomePage from './pages/Home'
-import InternalPage from './pages/Internal'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from './pages/Home';
+import InternalPage from './pages/Internal';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -27,24 +24,24 @@ const GlobalStyle = createGlobalStyle`
   #root{
     box-sizing: border-box;
   }
-`
+`;
 
 function App() {
   return (
    <Router>
-   <LayoutComponent>
-      <GlobalStyle  />
-     <Switch>
-          <Route exact path="/" >
-            <HomePage />
-          </Route>
-          <Route  path="/internal/:id" >
-            <InternalPage />
-          </Route>
-     </Switch>
-   </LayoutComponent>
+    <LayoutComponent>
+        <GlobalStyle  />
+      <Switch>
+            <Route exact path="/" >
+              <HomePage />
+            </Route>
+            <Route  path="/internal/:id" >
+              <InternalPage />
+            </Route>
+      </Switch>
+    </LayoutComponent>
    </Router>
   );
-}
+};
 
 export default App;

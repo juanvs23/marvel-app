@@ -1,14 +1,12 @@
 import React,{useContext} from 'react';
 import styled from 'styled-components'
-import {FunctionalsContent} from '../context/Context'
-import{useFetch} from '../hooks/useFetch'
-import CardComponent from '../component/card/CardComponent'
-import ContadorComponent from '../component/ContadorComponent/contador'
+import {FunctionalsContent} from '../context/Context';
+import{useFetch} from '../hooks/useFetch';
+import CardComponent from '../component/card/CardComponent';
+import ContadorComponent from '../component/ContadorComponent/contador';
 const HomWrapper=styled.div`
 display:block;
-
-
-`
+`;
 
 
 const HomePage=(props)=>{
@@ -25,17 +23,10 @@ const getUrl=()=>{
 }
 
   
- const url=getUrl();
-  const heroList=useFetch(url);
+const url=getUrl();
+const heroList=useFetch(url);
 
-
-    
-
-
-//    const url=`https://gateway.marvel.com/v1/public/characters?apikey=${apikey}&ts=${ts}&hash=${hash}&&nameStartsWith=spider`;
-
- 
-    let {response}=heroList
+    let {response}=heroList;
     
     if (response!==null) {
       let {limit,results,total}=response.data
@@ -56,10 +47,7 @@ const getUrl=()=>{
                     )
                  })}
                <ContadorComponent limit={limit} total={total} />
-               </HomWrapper>
-           )
-
-     
+               </HomWrapper>)
     }else{
       return(
 

@@ -1,5 +1,4 @@
 import React,{useContext,useRef} from 'react'
-//import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 
@@ -75,7 +74,10 @@ const Buscador =(props)=>{
     return(
         
         <BuscadorWrapper >
-               <button className="Buscador" type="button"> <i className="fa fa-search"></i> </button>< Input ref={HeroBuscar} onFocus={handlerVanish} onBlur={handlerShow} onChange={handlerSubmit} type="text"  placeholder={buscar} />
+               <button className="Buscador" type="button"> 
+                    <i className="fa fa-search"></i> 
+                </button>
+                < Input ref={HeroBuscar} onFocus={handlerVanish} onBlur={handlerShow} onChange={handlerSubmit} type="text"  placeholder={buscar} />
         </BuscadorWrapper>
     )
 }
