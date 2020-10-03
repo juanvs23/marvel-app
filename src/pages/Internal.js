@@ -78,10 +78,12 @@ const InternalPage=(props)=>{
             let fecha=new Date(texto)
             return fecha.toDateString()
           }
-       
+          let pathNoProtocol= images[0].path.substring(5,images[0].path.lenght),
+        newPath=document.location.protocol + pathNoProtocol;
+        console.log(newPath)
     return(<InternalWrapper>
             <div className="col-2">
-                <img alt="title" src={`${images[0].path}.jpg`} />
+                <img alt="title" src={`${newPath}.jpg`} />
             </div>
             <div className="col-2">
                 <h2>{title}</h2>

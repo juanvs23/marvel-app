@@ -88,11 +88,14 @@ const CardComponent=({hero})=>{
       
         setactiveComicList(true)
     }
-   
+  
+   let pathNoProtocol= path.substring(5,path.lenght),
+        newPath=document.location.protocol + pathNoProtocol;
+
     return(
         <>
         <CardContainer   
-        bg={`${path}.${extension}`}  >
+        bg={`${newPath}.${extension}`}  >
             <Star  id={id}  />
     <button className="cardName"  onClick={handleClick}>{name}</button>
         

@@ -47,9 +47,15 @@ const ComicLink=({Comic})=>{
       if(response!==null){
               
               const {id, images,title}= response.data.results[0]
+
+              let pathNoProtocol= images[0].path.substring(5,images[0].path.lenght),
+        newPath=document.location.protocol + pathNoProtocol;
+        console.log(newPath)
+
+   
             
      if(images[0]!==undefined && title!==undefined && id!==undefined){
-        return(<Tolink to={`/internal/${id}`}><div className="content-images"><img alt="" src={`${images[0].path}.jpg`} /></div><div className="content-text"><h4>{title}</h4></div></Tolink>)
+        return(<Tolink to={`/internal/${id}`}><div className="content-images"><img alt="" src={`${newPath}.jpg`} /></div><div className="content-text"><h4>{title}</h4></div></Tolink>)
      }else{
         
          return(<div className="Cargando" >Cargando..</div>)
