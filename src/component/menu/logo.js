@@ -31,6 +31,6 @@ const Brand=styled.div`
 `;
 
 const Logo=(props)=> {
-    return(<Brand><ToHome to="/"><img  alt="" src={LogoMarvel} /></ToHome> </Brand>)
+    return(<Brand><ToHome to="/marvel-app"><img  alt="" src={LogoMarvel} /></ToHome> </Brand>)
 }
 export default Logo;

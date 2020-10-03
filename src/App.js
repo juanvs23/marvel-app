@@ -32,10 +32,10 @@ function App() {
     <LayoutComponent>
         <GlobalStyle  />
       <Switch>
-            <Route exact path="/" >
+            <Route exact path="/marvel-app/" >
               <HomePage />
             </Route>
-            <Route  path="/internal/:id" >
+            <Route  path="/marvel-app/internal/:id" >
               <InternalPage />
             </Route>
       </Switch>
