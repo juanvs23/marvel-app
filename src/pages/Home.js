@@ -50,7 +50,7 @@ const heroList=useFetch(url);
                </HomWrapper>)
     }else{
       return(
-
+{/*algo*/}
         <HomWrapper>
         <h1>No hay Datos</h1>
     </HomWrapper>
