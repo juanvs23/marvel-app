@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "./static/js/main.b41f913e.chunk.js",
-    "main.js.map": "./static/js/main.b41f913e.chunk.js.map",
+    "main.js": "./static/js/main.e0bc49c1.chunk.js",
+    "main.js.map": "./static/js/main.e0bc49c1.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.9255d2d2.js",
     "runtime-main.js.map": "./static/js/runtime-main.9255d2d2.js.map",
     "static/js/2.3981fec9.chunk.js": "./static/js/2.3981fec9.chunk.js",
     "static/js/2.3981fec9.chunk.js.map": "./static/js/2.3981fec9.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.f887e71b5cf21d12fc456672c6ce0bb0.js": "./precache-manifest.f887e71b5cf21d12fc456672c6ce0bb0.js",
+    "precache-manifest.621ff3a369268d7094120569a4cafc7b.js": "./precache-manifest.621ff3a369268d7094120569a4cafc7b.js",
     "service-worker.js": "./service-worker.js",
     "static/js/2.3981fec9.chunk.js.LICENSE.txt": "./static/js/2.3981fec9.chunk.js.LICENSE.txt",
     "static/media/MarvelLogo.svg": "./static/media/MarvelLogo.06125b3c.svg"
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.9255d2d2.js",
     "static/js/2.3981fec9.chunk.js",
-    "static/js/main.b41f913e.chunk.js"
+    "static/js/main.e0bc49c1.chunk.js"
   ]
 }
