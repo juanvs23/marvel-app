@@ -79,7 +79,7 @@ const InternalPage=(props)=>{
             return fecha.toDateString()
           }
           let pathNoProtocol= images[0].path.substring(5,images[0].path.lenght),
-        newPath=document.location.protocol + pathNoProtocol;
+        newPath='https:' + pathNoProtocol;
         console.log(newPath)
     return(<InternalWrapper>
             <div className="col-2">

@@ -49,7 +49,7 @@ const ComicLink=({Comic})=>{
               const {id, images,title}= response.data.results[0]
 
               let pathNoProtocol= images[0].path.substring(5,images[0].path.lenght),
-        newPath=document.location.protocol + pathNoProtocol;
+        newPath='https:'+ pathNoProtocol;
         console.log(newPath)
 
    
